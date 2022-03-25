@@ -1,0 +1,717 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Get books,characters and comments. filter and sort them",
+    "version": "v1",
+    "title": "Books and Characters Api",
+    "contact": {
+      "email": "wanyekifs@gmail.com"
+    }
+  },
+  "basePath": "/api/v1",
+  "schemes": [
+    "http"
+  ],
+  "definitions": {
+    "Comment": {
+      "title": "Comment",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "ipAddress": {
+          "type": "string"
+        },
+        "bookId": {
+          "type": "string"
+        },
+        "commenterName": {
+          "type": "string"
+        },
+        "comment": {
+          "type": "string",
+          "format": "max[500]"
+        }
+      },
+      "description": "Books Comment"
+    },
+    "Book": {
+      "title": "Book",
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string",
+          "format": "url"
+        },
+        "name": {
+          "type": "string"
+        },
+        "isbn": {
+          "type": "string"
+        },
+        "numberOFPages": {
+          "type": "integer"
+        },
+        "publisher": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "mediaType": {
+          "type": "string"
+        },
+        "released": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "charactersCount": {
+          "type": "integer"
+        },
+        "povCharactersCount": {
+          "type": "integer"
+        }
+      }
+    },
+    "Character": {
+      "title": "Character",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "url": {
+          "type": "string",
+          "format": "url"
+        },
+        "name": {
+          "type": "string"
+        },
+        "culture": {
+          "type": "string",
+          "format": "url"
+        },
+        "born": {
+          "type": "string"
+        },
+        "died": {
+          "type": "string",
+          "format": "url"
+        },
+        "father": {
+          "type": "string"
+        },
+        "mother": {
+          "type": "string",
+          "format": "url"
+        },
+        "spouse": {
+          "type": "string"
+        },
+        "allegiances": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "povBooks": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "books": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "tvSeries": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "playedBy": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "description": "A actor in a book"
+    }
+  },
+  "paths": {
+    "/books": {
+      "get": {
+        "tags": [
+          "Books"
+        ],
+        "summary": "Get all books",
+        "description": "Get all books sorted by date published",
+        "operationId": "getAllBooks",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "title": "error message",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Book"
+              }
+            }
+          },
+          "500": {
+            "description": "Cant fetch data from the origin server"
+          }
+        }
+      }
+    },
+    "/books/{id}": {
+      "get": {
+        "tags": [
+          "Books"
+        ],
+        "summary": "Get a single book",
+        "description": "Get a book by passing the bookId",
+        "operationId": "getABook",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The unique bookId.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "title": "success message",
+              "properties": {
+                "book": {
+                  "type": "object",
+                  "$ref": "#/definitions/Book"
+                },
+                "commentsCount": {
+                  "type": "integer"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Cant fetch data from the origin server"
+          }
+        }
+      }
+    },
+    "/books/{Id}/comments": {
+      "post": {
+        "tags": [
+          "Comments"
+        ],
+        "summary": "Create a comment",
+        "description": "Create a comment for a specific book",
+        "operationId": "createComment",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "The unique bookId.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Commenter name and comment",
+            "required": true,
+            "schema": {
+              "title": "comment",
+              "type": "object",
+              "properties": {
+                "commenterName": {
+                  "type": "string"
+                },
+                "comment": {
+                  "type": "string",
+                  "format": "max[500]"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "title": "success result",
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string"
+                },
+                "comment": {
+                  "type": "object",
+                  "$ref": "#/definitions/Comment"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid body",
+            "schema": {
+              "title": "error message",
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "comment not found",
+            "schema": {
+              "title": "error message",
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "schema": {
+              "title": "error message",
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/books/{id}/comments": {
+      "get": {
+        "tags": [
+          "Comments"
+        ],
+        "summary": "Get comments",
+        "description": "Get all comments for a book",
+        "operationId": "getAllComments",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The unique bookId.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "title": "success result",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Comment"
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "schema": {
+              "title": "error message",
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/books/{bookId}/comments/{commentId}": {
+      "get": {
+        "tags": [
+          "Comments"
+        ],
+        "summary": "Get a single comment",
+        "description": "Get a comment by passing the commentId",
+        "operationId": "getAComment",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "commentId",
+            "in": "path",
+            "description": "The unique comment Id.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "bookId",
+            "in": "path",
+            "description": "The unique book Id.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "title": "success message",
+              "properties": {
+                "comment": {
+                  "type": "object",
+                  "$ref": "#/definitions/Comment"
+                },
+                "commentsCount": {
+                  "type": "integer"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Cant fetch data from the origin server"
+          }
+        }
+      }
+    },
+    "/books/{bookId}/comments/{id}": {
+      "patch": {
+        "tags": [
+          "Comments"
+        ],
+        "summary": "Update a comment",
+        "description": "Update a comment for a specific book",
+        "operationId": "updateComment",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Commenter name and comment",
+            "required": true,
+            "schema": {
+              "title": "success message",
+              "type": "object",
+              "properties": {
+                "commenterName": {
+                  "type": "string"
+                },
+                "comment": {
+                  "type": "string",
+                  "format": "max[500]"
+                }
+              }
+            }
+          },
+          {
+            "name": "bookId",
+            "in": "path",
+            "description": "The unique book id.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The unique comment id.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "title": "error message",
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string"
+                },
+                "comment": {
+                  "type": "object",
+                  "$ref": "#/definitions/Comment"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid body",
+            "schema": {
+              "title": "error message",
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "comment not found",
+            "schema": {
+              "title": "error message",
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "schema": {
+              "title": "error message",
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/books/{bookId}/comments/{Id}": {
+      "delete": {
+        "tags": [
+          "Comments"
+        ],
+        "summary": "delete a comment",
+        "description": "delete a comment from a specific book",
+        "operationId": "deleteComment",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "bookId",
+            "in": "path",
+            "description": "The unique book id.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "The unique comment id.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "title": "success message",
+              "properties": {
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "comment not found",
+            "schema": {
+              "type": "object",
+              "title": "error message",
+              "properties": {
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "schema": {
+              "title": "error message",
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/characters": {
+      "get": {
+        "tags": [
+          "Characters"
+        ],
+        "summary": "Get and filter characters",
+        "description": "Get all characters filters and sorts them with the provided parameters.",
+        "operationId": "getAllCharacters",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "name",
+            "description": "filter by name",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "gender",
+            "description": "filter by gender",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "male",
+                "female"
+              ]
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "in": "query",
+            "name": "sortby",
+            "description": "sort your results",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "name",
+                "age",
+                "gender"
+              ]
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "description": "Order your results is ascending descending order",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "desc",
+                "asc"
+              ]
+            },
+            "collectionFormat": "multi"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "title": "success message",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Character"
+              }
+            }
+          },
+          "500": {
+            "description": "Cant fetch data from the origin server",
+            "schema": {
+              "title": "error message",
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/characters/{id}": {
+      "get": {
+        "tags": [
+          "Characters"
+        ],
+        "summary": "Get a character",
+        "description": "Get a single character",
+        "operationId": "getCharacter",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The unique Character id.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "title": "success message",
+              "$ref": "#/definitions/Character"
+            }
+          },
+          "500": {
+            "description": "Cant fetch data from the origin server",
+            "schema": {
+              "type": "object",
+              "title": "error message",
+              "properties": {
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "host": "localhost:8000"
+}
