@@ -122,17 +122,6 @@ $(document).ready(function(){
 
   
     <li>
-        <a id="toggledelete-a-comment" class="nav-toggle collapsed" data-toggle="collapse" data-target="#uldelete-a-comment">delete a comment</a> 
-        <ul class="nav collapse nav-inner" id="uldelete-a-comment"> 
-          <li><a data-outer="delete-a-comment" href="../delete-a-comment.html">Summary</a></li>
-
-          
-            <li><a data-outer="delete-a-comment" href="../delete-a-comment/delete-comment.html">delete</a></li>
-          
-        </ul>
-    </li>
-  
-    <li>
         <a id="toggleget-a-character" class="nav-toggle collapsed" data-toggle="collapse" data-target="#ulget-a-character">Get a character</a> 
         <ul class="nav collapse nav-inner" id="ulget-a-character"> 
           <li><a data-outer="get-a-character" href="../get-a-character.html">Summary</a></li>
@@ -150,6 +139,17 @@ $(document).ready(function(){
 
           
             <li><a data-outer="get-and-filter-characters" href="../get-and-filter-characters/get-all-characters.html">get</a></li>
+          
+        </ul>
+    </li>
+  
+    <li>
+        <a id="toggleget-all-books" class="nav-toggle collapsed" data-toggle="collapse" data-target="#ulget-all-books">Get all books</a> 
+        <ul class="nav collapse nav-inner" id="ulget-all-books"> 
+          <li><a data-outer="get-all-books" href="../get-all-books.html">Summary</a></li>
+
+          
+            <li><a data-outer="get-all-books" href="get-all-books.html">get</a></li>
           
         </ul>
     </li>
@@ -177,28 +177,6 @@ $(document).ready(function(){
     </li>
   
     <li>
-        <a id="toggleget-comments" class="nav-toggle collapsed" data-toggle="collapse" data-target="#ulget-comments">Get comments</a> 
-        <ul class="nav collapse nav-inner" id="ulget-comments"> 
-          <li><a data-outer="get-comments" href="../get-comments.html">Summary</a></li>
-
-          
-            <li><a data-outer="get-comments" href="../get-comments/get-all-comments.html">get</a></li>
-          
-        </ul>
-    </li>
-  
-    <li>
-        <a id="toggleget-all-books" class="nav-toggle collapsed" data-toggle="collapse" data-target="#ulget-all-books">Get all books</a> 
-        <ul class="nav collapse nav-inner" id="ulget-all-books"> 
-          <li><a data-outer="get-all-books" href="../get-all-books.html">Summary</a></li>
-
-          
-            <li><a data-outer="get-all-books" href="get-all-books.html">get</a></li>
-          
-        </ul>
-    </li>
-  
-    <li>
         <a id="toggleget-a-single-comment" class="nav-toggle collapsed" data-toggle="collapse" data-target="#ulget-a-single-comment">Get a single comment</a> 
         <ul class="nav collapse nav-inner" id="ulget-a-single-comment"> 
           <li><a data-outer="get-a-single-comment" href="../get-a-single-comment.html">Summary</a></li>
@@ -216,6 +194,28 @@ $(document).ready(function(){
 
           
             <li><a data-outer="update-a-comment" href="../update-a-comment/update-comment.html">patch</a></li>
+          
+        </ul>
+    </li>
+  
+    <li>
+        <a id="toggledelete-a-comment" class="nav-toggle collapsed" data-toggle="collapse" data-target="#uldelete-a-comment">delete a comment</a> 
+        <ul class="nav collapse nav-inner" id="uldelete-a-comment"> 
+          <li><a data-outer="delete-a-comment" href="../delete-a-comment.html">Summary</a></li>
+
+          
+            <li><a data-outer="delete-a-comment" href="../delete-a-comment/delete-comment.html">delete</a></li>
+          
+        </ul>
+    </li>
+  
+    <li>
+        <a id="toggleget-comments" class="nav-toggle collapsed" data-toggle="collapse" data-target="#ulget-comments">Get comments</a> 
+        <ul class="nav collapse nav-inner" id="ulget-comments"> 
+          <li><a data-outer="get-comments" href="../get-comments.html">Summary</a></li>
+
+          
+            <li><a data-outer="get-comments" href="../get-comments/get-all-comments.html">get</a></li>
           
         </ul>
     </li>
@@ -257,7 +257,7 @@ $(document).ready(function(){
 
 <h2 class="sub-header">Request</h2>
 
-<pre>GET http://localhost:8000/api/v1/books</pre>
+<pre>GET https://booksfs.herokuapp.com/api/v1/books</pre>
 
 
 
@@ -376,7 +376,7 @@ $(document).ready(function(){
         apiExplorer.injectMimeTypesIntoPage();
 
         $(document).on('click', '#exploreButton', function() {
-            var url   = 'http:\/\/localhost:8000\/api\/v1\/books';
+            var url   = 'https:\/\/booksfs.herokuapp.com\/api\/v1\/books';
             var method= 'get';
             apiExplorer.go( method, url );
         });

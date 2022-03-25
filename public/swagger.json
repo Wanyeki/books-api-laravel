@@ -10,7 +10,7 @@
   },
   "basePath": "/api/v1",
   "schemes": [
-    "http"
+    "https"
   ],
   "definitions": {
     "Comment": {
@@ -713,5 +713,5 @@
       }
     }
   },
-  "host": "localhost:8000"
+  "host": "booksfs.herokuapp.com"
 }

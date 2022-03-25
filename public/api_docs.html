@@ -122,17 +122,6 @@ $(document).ready(function(){
 
   
     <li>
-        <a id="toggledelete-a-comment" class="nav-toggle collapsed" data-toggle="collapse" data-target="#uldelete-a-comment">delete a comment</a> 
-        <ul class="nav collapse nav-inner" id="uldelete-a-comment"> 
-          <li><a data-outer="delete-a-comment" href="books-and-characters-api/reference/delete-a-comment.html">Summary</a></li>
-
-          
-            <li><a data-outer="delete-a-comment" href="books-and-characters-api/reference/delete-a-comment/delete-comment.html">delete</a></li>
-          
-        </ul>
-    </li>
-  
-    <li>
         <a id="toggleget-a-character" class="nav-toggle collapsed" data-toggle="collapse" data-target="#ulget-a-character">Get a character</a> 
         <ul class="nav collapse nav-inner" id="ulget-a-character"> 
           <li><a data-outer="get-a-character" href="books-and-characters-api/reference/get-a-character.html">Summary</a></li>
@@ -150,6 +139,17 @@ $(document).ready(function(){
 
           
             <li><a data-outer="get-and-filter-characters" href="books-and-characters-api/reference/get-and-filter-characters/get-all-characters.html">get</a></li>
+          
+        </ul>
+    </li>
+  
+    <li>
+        <a id="toggleget-all-books" class="nav-toggle collapsed" data-toggle="collapse" data-target="#ulget-all-books">Get all books</a> 
+        <ul class="nav collapse nav-inner" id="ulget-all-books"> 
+          <li><a data-outer="get-all-books" href="books-and-characters-api/reference/get-all-books.html">Summary</a></li>
+
+          
+            <li><a data-outer="get-all-books" href="books-and-characters-api/reference/get-all-books/get-all-books.html">get</a></li>
           
         </ul>
     </li>
@@ -177,28 +177,6 @@ $(document).ready(function(){
     </li>
   
     <li>
-        <a id="toggleget-comments" class="nav-toggle collapsed" data-toggle="collapse" data-target="#ulget-comments">Get comments</a> 
-        <ul class="nav collapse nav-inner" id="ulget-comments"> 
-          <li><a data-outer="get-comments" href="books-and-characters-api/reference/get-comments.html">Summary</a></li>
-
-          
-            <li><a data-outer="get-comments" href="books-and-characters-api/reference/get-comments/get-all-comments.html">get</a></li>
-          
-        </ul>
-    </li>
-  
-    <li>
-        <a id="toggleget-all-books" class="nav-toggle collapsed" data-toggle="collapse" data-target="#ulget-all-books">Get all books</a> 
-        <ul class="nav collapse nav-inner" id="ulget-all-books"> 
-          <li><a data-outer="get-all-books" href="books-and-characters-api/reference/get-all-books.html">Summary</a></li>
-
-          
-            <li><a data-outer="get-all-books" href="books-and-characters-api/reference/get-all-books/get-all-books.html">get</a></li>
-          
-        </ul>
-    </li>
-  
-    <li>
         <a id="toggleget-a-single-comment" class="nav-toggle collapsed" data-toggle="collapse" data-target="#ulget-a-single-comment">Get a single comment</a> 
         <ul class="nav collapse nav-inner" id="ulget-a-single-comment"> 
           <li><a data-outer="get-a-single-comment" href="books-and-characters-api/reference/get-a-single-comment.html">Summary</a></li>
@@ -216,6 +194,28 @@ $(document).ready(function(){
 
           
             <li><a data-outer="update-a-comment" href="books-and-characters-api/reference/update-a-comment/update-comment.html">patch</a></li>
+          
+        </ul>
+    </li>
+  
+    <li>
+        <a id="toggledelete-a-comment" class="nav-toggle collapsed" data-toggle="collapse" data-target="#uldelete-a-comment">delete a comment</a> 
+        <ul class="nav collapse nav-inner" id="uldelete-a-comment"> 
+          <li><a data-outer="delete-a-comment" href="books-and-characters-api/reference/delete-a-comment.html">Summary</a></li>
+
+          
+            <li><a data-outer="delete-a-comment" href="books-and-characters-api/reference/delete-a-comment/delete-comment.html">delete</a></li>
+          
+        </ul>
+    </li>
+  
+    <li>
+        <a id="toggleget-comments" class="nav-toggle collapsed" data-toggle="collapse" data-target="#ulget-comments">Get comments</a> 
+        <ul class="nav collapse nav-inner" id="ulget-comments"> 
+          <li><a data-outer="get-comments" href="books-and-characters-api/reference/get-comments.html">Summary</a></li>
+
+          
+            <li><a data-outer="get-comments" href="books-and-characters-api/reference/get-comments/get-all-comments.html">get</a></li>
           
         </ul>
     </li>
@@ -249,36 +249,6 @@ $(document).ready(function(){
 
 
 
-
-
-    <h2 class="sub-header">delete a comment</h3>
-    
-    <div class="table-responsive">
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Operation</th>
-        <th>HTTP Request</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-    
-    <tr>
-      <td>
-        <a id="delete-comment" href="books-and-characters-api/reference/delete-a-comment/delete-comment.html">delete</a>
-      </td>
-      <td>
-        <pre>DELETE&nbsp;/api/v1/books/{bookId}/comments/{Id}</pre></td>
-      </td>
-      <td class="hyphenate Hyphenator600hide">
-        delete a comment
-      </td>
-    </tr>
-    
-    </tbody>
-  </table>
-</div>
 
 
     <h2 class="sub-header">Get a character</h3>
@@ -333,6 +303,36 @@ $(document).ready(function(){
       </td>
       <td class="hyphenate Hyphenator600hide">
         Get and filter characters
+      </td>
+    </tr>
+    
+    </tbody>
+  </table>
+</div>
+
+
+    <h2 class="sub-header">Get all books</h3>
+    
+    <div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Operation</th>
+        <th>HTTP Request</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+    
+    <tr>
+      <td>
+        <a id="get-all-books" href="books-and-characters-api/reference/get-all-books/get-all-books.html">get</a>
+      </td>
+      <td>
+        <pre>GET&nbsp;/api/v1/books</pre></td>
+      </td>
+      <td class="hyphenate Hyphenator600hide">
+        Get all books
       </td>
     </tr>
     
@@ -401,66 +401,6 @@ $(document).ready(function(){
 </div>
 
 
-    <h2 class="sub-header">Get comments</h3>
-    
-    <div class="table-responsive">
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Operation</th>
-        <th>HTTP Request</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-    
-    <tr>
-      <td>
-        <a id="get-all-comments" href="books-and-characters-api/reference/get-comments/get-all-comments.html">get</a>
-      </td>
-      <td>
-        <pre>GET&nbsp;/api/v1/books/{id}/comments</pre></td>
-      </td>
-      <td class="hyphenate Hyphenator600hide">
-        Get comments
-      </td>
-    </tr>
-    
-    </tbody>
-  </table>
-</div>
-
-
-    <h2 class="sub-header">Get all books</h3>
-    
-    <div class="table-responsive">
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Operation</th>
-        <th>HTTP Request</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-    
-    <tr>
-      <td>
-        <a id="get-all-books" href="books-and-characters-api/reference/get-all-books/get-all-books.html">get</a>
-      </td>
-      <td>
-        <pre>GET&nbsp;/api/v1/books</pre></td>
-      </td>
-      <td class="hyphenate Hyphenator600hide">
-        Get all books
-      </td>
-    </tr>
-    
-    </tbody>
-  </table>
-</div>
-
-
     <h2 class="sub-header">Get a single comment</h3>
     
     <div class="table-responsive">
@@ -513,6 +453,66 @@ $(document).ready(function(){
       </td>
       <td class="hyphenate Hyphenator600hide">
         Update a comment
+      </td>
+    </tr>
+    
+    </tbody>
+  </table>
+</div>
+
+
+    <h2 class="sub-header">delete a comment</h3>
+    
+    <div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Operation</th>
+        <th>HTTP Request</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+    
+    <tr>
+      <td>
+        <a id="delete-comment" href="books-and-characters-api/reference/delete-a-comment/delete-comment.html">delete</a>
+      </td>
+      <td>
+        <pre>DELETE&nbsp;/api/v1/books/{bookId}/comments/{Id}</pre></td>
+      </td>
+      <td class="hyphenate Hyphenator600hide">
+        delete a comment
+      </td>
+    </tr>
+    
+    </tbody>
+  </table>
+</div>
+
+
+    <h2 class="sub-header">Get comments</h3>
+    
+    <div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Operation</th>
+        <th>HTTP Request</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+    
+    <tr>
+      <td>
+        <a id="get-all-comments" href="books-and-characters-api/reference/get-comments/get-all-comments.html">get</a>
+      </td>
+      <td>
+        <pre>GET&nbsp;/api/v1/books/{id}/comments</pre></td>
+      </td>
+      <td class="hyphenate Hyphenator600hide">
+        Get comments
       </td>
     </tr>
     

@@ -122,17 +122,6 @@ $(document).ready(function(){
 
   
     <li>
-        <a id="toggledelete-a-comment" class="nav-toggle collapsed" data-toggle="collapse" data-target="#uldelete-a-comment">delete a comment</a> 
-        <ul class="nav collapse nav-inner" id="uldelete-a-comment"> 
-          <li><a data-outer="delete-a-comment" href="../reference/delete-a-comment.html">Summary</a></li>
-
-          
-            <li><a data-outer="delete-a-comment" href="../reference/delete-a-comment/delete-comment.html">delete</a></li>
-          
-        </ul>
-    </li>
-  
-    <li>
         <a id="toggleget-a-character" class="nav-toggle collapsed" data-toggle="collapse" data-target="#ulget-a-character">Get a character</a> 
         <ul class="nav collapse nav-inner" id="ulget-a-character"> 
           <li><a data-outer="get-a-character" href="../reference/get-a-character.html">Summary</a></li>
@@ -150,6 +139,17 @@ $(document).ready(function(){
 
           
             <li><a data-outer="get-and-filter-characters" href="../reference/get-and-filter-characters/get-all-characters.html">get</a></li>
+          
+        </ul>
+    </li>
+  
+    <li>
+        <a id="toggleget-all-books" class="nav-toggle collapsed" data-toggle="collapse" data-target="#ulget-all-books">Get all books</a> 
+        <ul class="nav collapse nav-inner" id="ulget-all-books"> 
+          <li><a data-outer="get-all-books" href="../reference/get-all-books.html">Summary</a></li>
+
+          
+            <li><a data-outer="get-all-books" href="../reference/get-all-books/get-all-books.html">get</a></li>
           
         </ul>
     </li>
@@ -177,28 +177,6 @@ $(document).ready(function(){
     </li>
   
     <li>
-        <a id="toggleget-comments" class="nav-toggle collapsed" data-toggle="collapse" data-target="#ulget-comments">Get comments</a> 
-        <ul class="nav collapse nav-inner" id="ulget-comments"> 
-          <li><a data-outer="get-comments" href="../reference/get-comments.html">Summary</a></li>
-
-          
-            <li><a data-outer="get-comments" href="../reference/get-comments/get-all-comments.html">get</a></li>
-          
-        </ul>
-    </li>
-  
-    <li>
-        <a id="toggleget-all-books" class="nav-toggle collapsed" data-toggle="collapse" data-target="#ulget-all-books">Get all books</a> 
-        <ul class="nav collapse nav-inner" id="ulget-all-books"> 
-          <li><a data-outer="get-all-books" href="../reference/get-all-books.html">Summary</a></li>
-
-          
-            <li><a data-outer="get-all-books" href="../reference/get-all-books/get-all-books.html">get</a></li>
-          
-        </ul>
-    </li>
-  
-    <li>
         <a id="toggleget-a-single-comment" class="nav-toggle collapsed" data-toggle="collapse" data-target="#ulget-a-single-comment">Get a single comment</a> 
         <ul class="nav collapse nav-inner" id="ulget-a-single-comment"> 
           <li><a data-outer="get-a-single-comment" href="../reference/get-a-single-comment.html">Summary</a></li>
@@ -216,6 +194,28 @@ $(document).ready(function(){
 
           
             <li><a data-outer="update-a-comment" href="../reference/update-a-comment/update-comment.html">patch</a></li>
+          
+        </ul>
+    </li>
+  
+    <li>
+        <a id="toggledelete-a-comment" class="nav-toggle collapsed" data-toggle="collapse" data-target="#uldelete-a-comment">delete a comment</a> 
+        <ul class="nav collapse nav-inner" id="uldelete-a-comment"> 
+          <li><a data-outer="delete-a-comment" href="../reference/delete-a-comment.html">Summary</a></li>
+
+          
+            <li><a data-outer="delete-a-comment" href="../reference/delete-a-comment/delete-comment.html">delete</a></li>
+          
+        </ul>
+    </li>
+  
+    <li>
+        <a id="toggleget-comments" class="nav-toggle collapsed" data-toggle="collapse" data-target="#ulget-comments">Get comments</a> 
+        <ul class="nav collapse nav-inner" id="ulget-comments"> 
+          <li><a data-outer="get-comments" href="../reference/get-comments.html">Summary</a></li>
+
+          
+            <li><a data-outer="get-comments" href="../reference/get-comments/get-all-comments.html">get</a></li>
           
         </ul>
     </li>
@@ -270,7 +270,19 @@ $(document).ready(function(){
 <h2 class="sub-header">Resource</h2>
 
 <pre><code>{
-    &#34;message&#34;: &#34;string&#34;
+    &#34;book&#34;: {
+        &#34;charactersCount&#34;: &#34;integer&#34;,
+        &#34;country&#34;: &#34;string&#34;,
+        &#34;isbn&#34;: &#34;string&#34;,
+        &#34;mediaType&#34;: &#34;string&#34;,
+        &#34;name&#34;: &#34;string&#34;,
+        &#34;numberOFPages&#34;: &#34;integer&#34;,
+        &#34;povCharactersCount&#34;: &#34;integer&#34;,
+        &#34;publisher&#34;: &#34;string&#34;,
+        &#34;released&#34;: &#34;date-time&#34;,
+        &#34;url&#34;: &#34;url&#34;
+    },
+    &#34;commentsCount&#34;: &#34;integer&#34;
 }</code></pre>
 
 <h2 class="sub-header">Properties</h2>
@@ -290,10 +302,186 @@ $(document).ready(function(){
       
   <tr>
     <td class="resource">
-      message
+      book
+    </td>
+    
+    <td class="type">object</td>
+    <td>
+      Book
+      
+    </td>
+    <td>Optional
+        </td>
+  </tr>
+  
+  <tr>
+    <td class="resource">
+      <span class="object">book</span>.charactersCount
+    </td>
+    
+    <td class="type">integer</td>
+    <td>
+      
+      
+    </td>
+    <td>Optional
+        </td>
+  </tr>
+  
+
+
+  <tr>
+    <td class="resource">
+      <span class="object">book</span>.country
     </td>
     
     <td class="type">string</td>
+    <td>
+      
+      
+    </td>
+    <td>Optional
+        </td>
+  </tr>
+  
+
+
+  <tr>
+    <td class="resource">
+      <span class="object">book</span>.isbn
+    </td>
+    
+    <td class="type">string</td>
+    <td>
+      
+      
+    </td>
+    <td>Optional
+        </td>
+  </tr>
+  
+
+
+  <tr>
+    <td class="resource">
+      <span class="object">book</span>.mediaType
+    </td>
+    
+    <td class="type">string</td>
+    <td>
+      
+      
+    </td>
+    <td>Optional
+        </td>
+  </tr>
+  
+
+
+  <tr>
+    <td class="resource">
+      <span class="object">book</span>.name
+    </td>
+    
+    <td class="type">string</td>
+    <td>
+      
+      
+    </td>
+    <td>Optional
+        </td>
+  </tr>
+  
+
+
+  <tr>
+    <td class="resource">
+      <span class="object">book</span>.numberOFPages
+    </td>
+    
+    <td class="type">integer</td>
+    <td>
+      
+      
+    </td>
+    <td>Optional
+        </td>
+  </tr>
+  
+
+
+  <tr>
+    <td class="resource">
+      <span class="object">book</span>.povCharactersCount
+    </td>
+    
+    <td class="type">integer</td>
+    <td>
+      
+      
+    </td>
+    <td>Optional
+        </td>
+  </tr>
+  
+
+
+  <tr>
+    <td class="resource">
+      <span class="object">book</span>.publisher
+    </td>
+    
+    <td class="type">string</td>
+    <td>
+      
+      
+    </td>
+    <td>Optional
+        </td>
+  </tr>
+  
+
+
+  <tr>
+    <td class="resource">
+      <span class="object">book</span>.released
+    </td>
+    
+    <td class="type">date-time</td>
+    <td>
+      
+      
+    </td>
+    <td>Optional
+        </td>
+  </tr>
+  
+
+
+  <tr>
+    <td class="resource">
+      <span class="object">book</span>.url
+    </td>
+    
+    <td class="type">url</td>
+    <td>
+      
+      
+    </td>
+    <td>Optional
+        </td>
+  </tr>
+  
+
+
+
+
+  <tr>
+    <td class="resource">
+      commentsCount
+    </td>
+    
+    <td class="type">integer</td>
     <td>
       
       
