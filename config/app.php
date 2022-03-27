@@ -124,7 +124,7 @@ return [
     'key' => env('APP_KEY'),
 
     'cipher' => 'AES-256-CBC',
-    'key' => env('APP_KEY', 'helloworld2345678909'),
+    'key' => env('APP_KEY', 'key=63C12FA9054272ADA4A59634BF2A8D94'),
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers
